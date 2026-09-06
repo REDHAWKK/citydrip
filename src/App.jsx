@@ -1,39 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   ArrowUpRight,
   ChevronDown,
   ChevronRight,
-  Minus,
   Plus,
-  ShoppingBag,
-  X,
 } from 'lucide-react'
 import './App.css'
+import AboutPage from './AboutPage.jsx'
+import CartDrawer from './CartDrawer.jsx'
+import { formatPrice, products } from './catalogue.js'
 import Footer from './Footer.jsx'
 import NavBar from './NavBar.jsx'
-
-const products = [
-  { id: 1, name: 'Tracksuit', price: 92000, category: 'Tracksuit', tone: 'orange', image: '/tracksuit1.png', code: 'CD-001', badge: 'Hot drop' },
-  { id: 2, name: 'T-Shirt', price: 36000, category: 'T-Shirt', tone: 'black', image: '/Tshirt.png', code: 'CD-002', badge: 'Best seller' },
-  { id: 3, name: 'SnapBack Cap', price: 28000, category: 'SnapBack Cap', tone: 'blue', image: '/snapback-cap.png', code: 'CD-003', badge: 'New in' },
-  { id: 4, name: 'Tank Top', price: 32000, category: 'Tank Top', tone: 'pink', image: '/tank-top.png', code: 'CD-004', badge: 'New in' },
-  { id: 5, name: 'Crest Cap', price: 28000, category: 'Crest Cap', tone: 'green', image: '/crest-cap.png', code: 'CD-005', badge: '' },
-]
-
-const categories = ['All pieces', 'Tracksuit', 'T-Shirt', 'SnapBack Cap', 'Tank Top', 'Crest Cap']
-
-function formatPrice(price) {
-  return `₦${price.toLocaleString('en-NG')}`
-}
+import ProductGrid from './ProductGrid.jsx'
+import ShopPage from './ShopPage.jsx'
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('All pieces')
   const [cart, setCart] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/'
 
-  const visibleProducts = activeCategory === 'All pieces'
-    ? products
-    : products.filter((product) => product.category === activeCategory)
+  useEffect(() => {
+    if (currentPath === '/') {
+      document.title = 'City Drip Original | Wear your energy'
+      document.querySelector('meta[name="description"]')?.setAttribute('content', 'City Drip is a Lagos clothing brand making bold, expressive streetwear for everyday energy.')
+    }
+  }, [currentPath])
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0)
   const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0)
@@ -58,6 +50,14 @@ function App() {
   function whatsappOrder() {
     const order = cart.map((item) => `${item.quantity}x ${item.name} (${formatPrice(item.price)})`).join('%0A')
     window.open(`https://wa.me/234707530365?text=Hi%20City%20Drip%2C%20I%27d%20like%20to%20order%3A%0A${order}%0A%0ATotal%3A%20${formatPrice(cartTotal)}`, '_blank')
+  }
+
+  if (currentPath === '/about') {
+    return <><AboutPage cartCount={cartCount} onBagOpen={() => setCartOpen(true)} /><CartDrawer cart={cart} cartCount={cartCount} cartTotal={cartTotal} open={cartOpen} onClose={() => setCartOpen(false)} onUpdateQuantity={updateQuantity} onWhatsappOrder={whatsappOrder} /></>
+  }
+
+  if (currentPath === '/shop') {
+    return <><ShopPage cartCount={cartCount} onBagOpen={() => setCartOpen(true)} onAddToCart={addToCart} /><CartDrawer cart={cart} cartCount={cartCount} cartTotal={cartTotal} open={cartOpen} onClose={() => setCartOpen(false)} onUpdateQuantity={updateQuantity} onWhatsappOrder={whatsappOrder} /></>
   }
 
   return (
@@ -85,11 +85,7 @@ function App() {
 
       <section className="shop-section" id="shop">
         <div className="section-heading"><div><p className="eyebrow">The current rotation</p><h2>Pick your <em>piece.</em></h2></div><p className="section-note">Built for the city. <br />Styled by you.</p></div>
-        <div className="category-row">{categories.map((category) => <button key={category} className={activeCategory === category ? 'active' : ''} onClick={() => setActiveCategory(category)}>{category}</button>)}</div>
-        <div className="product-grid">{visibleProducts.map((product) => <article className="product-card" key={product.id}>
-          <div className={`product-art ${product.tone}`}><img className="product-image" src={product.image} alt={`${product.name} product design`} /><div className="product-actions"><button className="quick-add" type="button" onClick={() => addToCart(product)}>Add to bag <Plus size={16} /></button><button className="see-more" type="button">See more <ArrowUpRight size={16} /></button></div>{product.badge && <span className="badge">{product.badge}</span>}</div>
-          <div className="product-meta"><div><h3>{product.name}</h3><p>{product.category}</p></div><strong>{formatPrice(product.price)}</strong></div>
-        </article>)}</div>
+        <ProductGrid activeCategory={activeCategory} onCategoryChange={setActiveCategory} onAddToCart={addToCart} />
         <a className="text-link" href="#shop">View all pieces <ChevronRight size={18} /></a>
       </section>
 
@@ -97,7 +93,7 @@ function App() {
 
       <Footer />
 
-      {cartOpen && <div className="drawer-backdrop" onClick={() => setCartOpen(false)}><aside className="cart-drawer" onClick={(event) => event.stopPropagation()}><div className="drawer-heading"><div><p className="eyebrow">Your selection</p><h2>Your bag <span>({cartCount})</span></h2></div><button className="icon-button" aria-label="Close bag" onClick={() => setCartOpen(false)}><X /></button></div>{cart.length === 0 ? <div className="empty-cart"><ShoppingBag size={40} /><p>Your bag is waiting for<br />something with energy.</p><a href="#shop" onClick={() => setCartOpen(false)}>Browse pieces <ArrowUpRight size={16} /></a></div> : <><div className="cart-items">{cart.map((item) => <div className="cart-item" key={item.id}><div className={`mini-art ${item.tone}`}><img className="mini-product-image" src={item.image} alt="" /></div><div className="cart-item-copy"><h3>{item.name}</h3><p>{formatPrice(item.price)}</p><div className="quantity"><button onClick={() => updateQuantity(item.id, -1)}><Minus size={13} /></button><span>{item.quantity}</span><button onClick={() => updateQuantity(item.id, 1)}><Plus size={13} /></button></div></div></div>)}</div><div className="cart-total"><span>Total</span><strong>{formatPrice(cartTotal)}</strong></div><button className="whatsapp-button" onClick={whatsappOrder}>Continue on WhatsApp <ArrowUpRight size={18} /></button><p className="cart-note">You’ll confirm size, delivery and payment with our team.</p></>}</aside></div>}
+      <CartDrawer cart={cart} cartCount={cartCount} cartTotal={cartTotal} open={cartOpen} onClose={() => setCartOpen(false)} onUpdateQuantity={updateQuantity} onWhatsappOrder={whatsappOrder} />
     </main>
   )
 }
