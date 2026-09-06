@@ -73,9 +73,8 @@ function App() {
           <p className="hero-intro">Premium streetwear for people who make the city look better.</p>
           <a className="pill-button dark-button" href="#shop">Shop the drop <ArrowUpRight size={18} /></a>
         </div>
-        <div className="hero-product" aria-label="Orange Signal Hoodie product visual">
-          <div className="scribble">CITY<br />DRIP<br /><span>004</span></div>
-          <div className="hoodie-shape"><div className="hoodie-pocket" /><div className="hoodie-print">CD<br /><small>made to move</small></div></div>
+        <div className="hero-product" aria-label="Orange City Drip tracksuit product visual">
+          <img className="hero-image" src="/hero.png" alt="Orange City Drip tracksuit" />
           <div className="hero-sticker">New<br />drop <ArrowUpRight size={25} /></div>
         </div>
         <div className="hero-foot"><span>01 / 04</span><span>Scroll to explore <ChevronDown size={16} /></span></div>
