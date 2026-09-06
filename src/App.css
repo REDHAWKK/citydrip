@@ -3,7 +3,7 @@
 :root { --orange: #ff5a00; --orange-deep: #ed4800; --milk: #fff8ef; --ink: #171717; --line: rgba(23,23,23,.18); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { background: var(--orange); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+body { background: var(--orange); color: var(--ink); font-family: 'DM Sans', sans-serif; overflow-x: clip;}
 button, a { color: inherit; font: inherit; }
 button { cursor: pointer; }
 a { text-decoration: none; }
