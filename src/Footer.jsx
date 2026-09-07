@@ -6,7 +6,7 @@ function Footer() {
     <footer id="footer">
       <div className="footer-top">
         <img src="/nav-logo.png" alt="City Drip" />
-        <p>Wear Your Energy</p>
+        <p>Step Into Your Drip</p>
         <a
           className="pill-button dark-button"
           href="https://wa.me/2347075303635"

@@ -161,9 +161,9 @@ function App() {
         <div className="hero-copy">
           <p className="eyebrow light">City Drip / Lagos, NG</p>
           <h1>
-            Wear Your
+            Step Into Your
             <br />
-            <em>Energy.</em>
+            <em>Drip.</em>
           </h1>
           <p className="hero-intro">Premium streetwear for people who make the city look better.</p>
           <a className="pill-button dark-button" href="#shop">
@@ -226,7 +226,7 @@ function App() {
             We make clothes for the ones who bring the flavour. Loud colour,
             clean cuts, unmistakable presence. From Lagos to everywhere.
           </p>
-          <a className="pill-button light-button" href="#footer">
+          <a className="pill-button light-button" href="/about">
             Meet the brand
             <ArrowUpRight size={18} />
           </a>
