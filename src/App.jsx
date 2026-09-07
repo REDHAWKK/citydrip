@@ -166,7 +166,7 @@ function App() {
             <em>Energy.</em>
           </h1>
           <p className="hero-intro">Premium streetwear for people who make the city look better.</p>
-          <a className="pill-button dark-button" href="#shop">
+          <a className="pill-button dark-button" href="/shop">
             Shop the drop
             <ArrowUpRight size={18} />
           </a>
@@ -208,7 +208,7 @@ function App() {
           onCategoryChange={setActiveCategory}
           onAddToCart={addToCart}
         />
-        <a className="text-link" href="#shop">
+        <a className="text-link" href="/shop">
           View all pieces
           <ChevronRight size={18} />
         </a>
