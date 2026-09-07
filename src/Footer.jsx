@@ -6,10 +6,10 @@ function Footer() {
     <footer id="footer">
       <div className="footer-top">
         <img src="/nav-logo.png" alt="City Drip" />
-        <p>Big mood. <br />Everyday drip.</p>
+        <p>Wear Your Energy</p>
         <a
           className="pill-button dark-button"
-          href="https://wa.me/234707530365"
+          href="https://wa.me/2347075303635"
           target="_blank"
           rel="noreferrer"
         >
@@ -18,7 +18,7 @@ function Footer() {
         </a>
       </div>
       <div className="footer-bottom">
-        <span>© 2026 City Drip</span>
+        <span>© 2026 City Drip Original</span>
         <span>Lagos, Nigeria</span>
         <div className="footer-socials">
           <a
@@ -40,7 +40,7 @@ function Footer() {
             <FaTiktok size={17} />
           </a>
           <a
-            href="https://wa.me/234707530365"
+            href="https://wa.me/2347075303635"
             target="_blank"
             rel="noreferrer"
             aria-label="Chat with City Drip on WhatsApp"
