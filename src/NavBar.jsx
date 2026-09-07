@@ -10,16 +10,38 @@ function NavBar({ cartCount, onBagOpen }) {
 
   return (
     <nav className="nav-bar">
-      <button className="icon-button menu-trigger" aria-label="Open menu" onClick={() => setMenuOpen(!menuOpen)}><Menu size={23} /></button>
+      <button
+        className="icon-button menu-trigger"
+        aria-label="Open menu"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <Menu size={23} />
+      </button>
       <div className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
-        <a href="/shop" onClick={closeMenu}>Shop</a>
-        <a href="/about" onClick={closeMenu}>The world</a>
-        <a href="#footer" onClick={closeMenu}>Contact</a>
+        <a href="/shop" onClick={closeMenu}>
+          Shop
+        </a>
+        <a href="/about" onClick={closeMenu}>
+          The world
+        </a>
+        <a href="#footer" onClick={closeMenu}>
+          Contact
+        </a>
       </div>
       <a className="nav-logo" href="/" aria-label="City Drip home"><img src="/nav-logo.png" alt="City Drip" /></a>
       <div className="nav-actions">
-        <a className="nav-order" href="/shop">Order online <ArrowUpRight size={16} /></a>
-        <button className="bag-button" aria-label="Open bag" onClick={onBagOpen}><ShoppingBag size={21} /><span>{cartCount}</span></button>
+        <a className="nav-order" href="/shop">
+          Order online
+          <ArrowUpRight size={16} />
+        </a>
+        <button
+          className="bag-button"
+          aria-label="Open bag"
+          onClick={onBagOpen}
+        >
+          <ShoppingBag size={21} />
+          <span>{cartCount}</span>
+        </button>
       </div>
     </nav>
   )

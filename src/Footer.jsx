@@ -7,17 +7,56 @@ function Footer() {
       <div className="footer-top">
         <img src="/nav-logo.png" alt="City Drip" />
         <p>Big mood. <br />Everyday drip.</p>
-        <a className="pill-button dark-button" href="https://wa.me/234707530365" target="_blank" rel="noreferrer">Chat to order <ArrowUpRight size={18} /></a>
+        <a
+          className="pill-button dark-button"
+          href="https://wa.me/234707530365"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Chat to order
+          <ArrowUpRight size={18} />
+        </a>
       </div>
       <div className="footer-bottom">
         <span>© 2026 City Drip</span>
         <span>Lagos, Nigeria</span>
         <div className="footer-socials">
-          <a href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="City Drip on Instagram" title="Instagram"><FaInstagram size={17} /></a>
-          <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" aria-label="City Drip on TikTok" title="TikTok"><FaTiktok size={17} /></a>
-          <a href="https://wa.me/234707530365" target="_blank" rel="noreferrer" aria-label="Chat with City Drip on WhatsApp" title="WhatsApp"><FaWhatsapp size={17} /></a>
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="City Drip on Instagram"
+            title="Instagram"
+          >
+            <FaInstagram size={17} />
+          </a>
+          <a
+            href="https://www.tiktok.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="City Drip on TikTok"
+            title="TikTok"
+          >
+            <FaTiktok size={17} />
+          </a>
+          <a
+            href="https://wa.me/234707530365"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Chat with City Drip on WhatsApp"
+            title="WhatsApp"
+          >
+            <FaWhatsapp size={17} />
+          </a>
         </div>
-        <a className="footer-credit" href="https://oriarebun-princeton-portfolio.vercel.app" target="_blank" rel="noreferrer">Website Produced by Oriarebun Princeton</a>
+        <a
+          className="footer-credit"
+          href="https://oriarebun-princeton-portfolio.vercel.app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Website Produced by Oriarebun Princeton
+        </a>
       </div>
     </footer>
   )
