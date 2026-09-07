@@ -22,7 +22,7 @@ function NavBar({ cartCount, onBagOpen }) {
           Shop
         </a>
         <a href="/about" onClick={closeMenu}>
-          The world
+          The Brand
         </a>
         <a href="#footer" onClick={closeMenu}>
           Contact

@@ -18,9 +18,24 @@ import kachingSound from './assets/audio/kaching-sound.mp3'
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('All pieces')
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(() => {
+    try {
+      const savedCart = localStorage.getItem('citydrip-cart')
+      return savedCart ? JSON.parse(savedCart) : []
+    } catch {
+      return []
+    }
+  })
   const [cartOpen, setCartOpen] = useState(false)
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/'
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem('citydrip-cart', JSON.stringify(cart))
+    } else {
+      localStorage.removeItem('citydrip-cart')
+    }
+  }, [cart])
 
   useEffect(() => {
     if (currentPath === '/') {
