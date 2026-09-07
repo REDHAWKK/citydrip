@@ -14,6 +14,7 @@ import NavBar from './NavBar.jsx'
 import ProductGrid from './ProductGrid.jsx'
 import { updateSeo } from './seo.js'
 import ShopPage from './ShopPage.jsx'
+import kachingSound from './assets/audio/kaching-sound.mp3'
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('All pieces')
@@ -50,6 +51,9 @@ function App() {
   const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0)
 
   function addToCart(product) {
+    const audio = new Audio(kachingSound)
+    audio.play().catch(() => {})
+
     setCart((currentCart) => {
       const existing = currentCart.find((item) => item.id === product.id)
       if (existing) {
