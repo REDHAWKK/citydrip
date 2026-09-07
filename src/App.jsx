@@ -86,7 +86,7 @@ function App() {
       .join('%0A')
 
     window.open(
-      `https://wa.me/234707530365?text=Hi%20City%20Drip%2C%20I%27d%20like%20to%20order%3A%0A${order}%0A%0ATotal%3A%20${formatPrice(cartTotal)}`,
+      `https://wa.me/2347075303635?text=Hi%20City%20Drip%2C%20I%27d%20like%20to%20order%3A%0A${order}%0A%0ATotal%3A%20${formatPrice(cartTotal)}`,
       '_blank',
     )
   }
