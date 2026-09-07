@@ -161,9 +161,9 @@ function App() {
         <div className="hero-copy">
           <p className="eyebrow light">City Drip / Lagos, NG</p>
           <h1>
-            Step Into Your
+            Wear Your
             <br />
-            <em>Drip.</em>
+            <em>Energy.</em>
           </h1>
           <p className="hero-intro">Premium streetwear for people who make the city look better.</p>
           <a className="pill-button dark-button" href="#shop">
