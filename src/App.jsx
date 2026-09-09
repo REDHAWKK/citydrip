@@ -185,7 +185,7 @@ function App() {
       <section className="marquee" aria-label="City Drip message">
         <div>
           NO SMALL ENERGY <span>✦</span> MADE IN LAGOS <span>✦</span> CITY DRIP
-          ONLY <span>✦</span> GET YOUR DRIP <span>✦</span>&nbsp;
+          ORIGINAL <span>✦</span> GET YOUR DRIP &nbsp;
         </div>
       </section>
 
