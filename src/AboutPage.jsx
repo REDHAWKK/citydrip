@@ -7,7 +7,7 @@ import { updateSeo } from './seo.js'
 function AboutPage({ cartCount, onBagOpen }) {
   useEffect(() => {
     updateSeo({
-      title: 'About City Drip | The City Drip World',
+      title: 'About City Drip | Discover the story behind the drip',
       description:
         'Enter The City Drip World: the story, spirit and Lagos energy behind City Drip Nigerian streetwear.',
       path: '/about',

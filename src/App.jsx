@@ -12,6 +12,7 @@ import { formatPrice, products } from './catalogue.js'
 import Footer from './Footer.jsx'
 import NavBar from './NavBar.jsx'
 import ProductGrid from './ProductGrid.jsx'
+import ProductPage from './ProductPage.jsx'
 import { updateSeo } from './seo.js'
 import ShopPage from './ShopPage.jsx'
 import kachingSound from './assets/audio/kaching-sound.mp3'
@@ -28,6 +29,10 @@ function App() {
   })
   const [cartOpen, setCartOpen] = useState(false)
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/'
+  const productSlug = currentPath.startsWith('/product/')
+    ? currentPath.split('/')[2]
+    : null
+  const selectedProduct = products.find((product) => product.slug === productSlug)
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -68,17 +73,21 @@ function App() {
   function addToCart(product) {
     const audio = new Audio(kachingSound)
     audio.play().catch(() => {})
+    const quantity = product.quantity || 1
+    const selectedSize = product.selectedSize || null
 
     setCart((currentCart) => {
-      const existing = currentCart.find((item) => item.id === product.id)
+      const existing = currentCart.find(
+        (item) => item.id === product.id && item.selectedSize === selectedSize,
+      )
       if (existing) {
         return currentCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+          item.id === product.id && item.selectedSize === selectedSize
+            ? { ...item, quantity: item.quantity + quantity }
             : item,
         )
       }
-      return [...currentCart, { ...product, quantity: 1 }]
+      return [...currentCart, { ...product, selectedSize, quantity }]
     })
     setCartOpen(true)
   }
@@ -130,6 +139,28 @@ function App() {
     return (
       <>
         <ShopPage
+          cartCount={cartCount}
+          onBagOpen={() => setCartOpen(true)}
+          onAddToCart={addToCart}
+        />
+        <CartDrawer
+          cart={cart}
+          cartCount={cartCount}
+          cartTotal={cartTotal}
+          open={cartOpen}
+          onClose={() => setCartOpen(false)}
+          onUpdateQuantity={updateQuantity}
+          onWhatsappOrder={whatsappOrder}
+        />
+      </>
+    )
+  }
+
+  if (selectedProduct) {
+    return (
+      <>
+        <ProductPage
+          product={selectedProduct}
           cartCount={cartCount}
           onBagOpen={() => setCartOpen(true)}
           onAddToCart={addToCart}

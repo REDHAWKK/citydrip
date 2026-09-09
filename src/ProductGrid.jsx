@@ -37,10 +37,10 @@ function ProductGrid({ activeCategory = 'All pieces', onCategoryChange, onAddToC
                   Add to bag
                   <Plus size={16} />
                 </button>
-                <button className="see-more" type="button">
+                <a className="see-more" href={`/product/${product.slug || product.id}`}>
                   See more
                   <ArrowUpRight size={16} />
-                </button>
+                </a>
               </div>
               {product.badge && <span className="badge">{product.badge}</span>}
             </div>

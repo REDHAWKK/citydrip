@@ -10,7 +10,7 @@ function ShopPage({ cartCount, onBagOpen, onAddToCart }) {
 
   useEffect(() => {
     updateSeo({
-      title: 'Shop City Drip | Nigerian Streetwear',
+        title: 'Shop City Drip | Get your drip from the official store',
       description:
         'Shop City Drip streetwear from Lagos, Nigeria. Discover tracksuits, T-shirts, caps and tank tops from the first drop.',
       path: '/shop',
@@ -45,7 +45,7 @@ function ShopPage({ cartCount, onBagOpen, onAddToCart }) {
           <br />
           <em>energy.</em>
         </h1>
-        <p>Five pieces. One unmistakable City Drip mood.</p>
+        <p>Six pieces. One unmistakable City Drip mood.</p>
       </header>
       <section className="shop-section catalog-page-section">
         <div className="section-heading">
@@ -66,7 +66,7 @@ function ShopPage({ cartCount, onBagOpen, onAddToCart }) {
           onCategoryChange={setActiveCategory}
           onAddToCart={onAddToCart}
         />
-        <a className="text-link" href="/#world">
+        <a className="text-link" href="/about">
           Learn about the brand
           <ArrowUpRight size={18} />
         </a>
