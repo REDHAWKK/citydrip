@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     if (currentPath === '/') {
       updateSeo({
-        title: 'City Drip Original | Nigerian Streetwear',
+        title: 'City Drip Original | Official Website | Wear Your Energy',
         description:
           'City Drip is a Lagos clothing brand making bold, expressive Nigerian streetwear for everyday energy.',
         path: '/',
