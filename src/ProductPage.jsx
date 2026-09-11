@@ -45,6 +45,18 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
     })
   }, [description, gallery, product])
 
+  useEffect(() => {
+    if (gallery.length < 2) {
+      return undefined
+    }
+
+    const slideshow = window.setInterval(() => {
+      setActiveImage((current) => (current + 1) % gallery.length)
+    }, 5000)
+
+    return () => window.clearInterval(slideshow)
+  }, [gallery.length])
+
   function addProductToCart() {
     onAddToCart({ ...product, selectedSize, quantity })
   }
@@ -75,7 +87,19 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
             <span>{product.badge || 'City Drip Original'}</span>
           </div>
           <div className="product-showcase-image-wrap">
-            <img className="product-showcase-image" src={gallery[activeImage]} alt={`${product.name}, view ${activeImage + 1}`} />
+            <div
+              className="product-showcase-image-track"
+              style={{ transform: `translateX(-${activeImage * 100}%)` }}
+            >
+              {gallery.map((image, index) => (
+                <img
+                  className="product-showcase-image"
+                  key={image}
+                  src={image}
+                  alt={`${product.name}, view ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
           <div className="product-showcase-footer">
             <span>Made in Lagos</span>

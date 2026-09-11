@@ -208,8 +208,9 @@ footer { background: var(--ink); color: var(--milk); padding: 60px 9vw 25px; }.f
 .product-showcase-orange { background: #ff6107; }.product-showcase-black { background: #222; color: var(--milk); }.product-showcase-blue { background: #96b2cb; }.product-showcase-pink { background: #e98083; }.product-showcase-green { background: #798b79; }.product-showcase-cream { background: #e8dfcf; }
 .product-showcase-topline, .product-showcase-footer { display: flex; font-size: 10px; font-weight: 700; justify-content: space-between; letter-spacing: .1em; position: relative; text-transform: uppercase; z-index: 1; }
 .product-showcase-topline span:last-child { opacity: .64; }
-.product-showcase-image-wrap { align-items: center; display: flex; height: calc(100% - 42px); justify-content: center; min-height: 500px; }
-.product-showcase-image { height: min(62vh, 610px); max-height: 100%; max-width: 90%; object-fit: contain; width: 90%; }
+.product-showcase-image-wrap { align-items: center; display: flex; height: 100%; justify-content: flex-start; overflow: hidden; }
+.product-showcase-image-track { display: flex; height: 100%; transition: transform .8s cubic-bezier(.22, 1, .36, 1); width: 100%; will-change: transform; }
+.product-showcase-image { flex: 0 0 100%; height: min(62vh, 610px); max-height: 100%; max-width: 100%; object-fit: contain; width: 100%; }
 .product-showcase-footer { bottom: 20px; left: 24px; position: absolute; right: 24px; }
 .product-showcase-controls { bottom: 53px; display: flex; gap: 4px; position: absolute; right: 24px; }
 .product-showcase-controls button { align-items: center; background: var(--milk); border: 0; display: grid; height: 36px; place-items: center; width: 36px; }
@@ -249,8 +250,8 @@ footer { background: var(--ink); color: var(--milk); padding: 60px 9vw 25px; }.f
 	.product-breadcrumbs { padding: 22px 20px 0; }
 	.product-stage { display: block; padding: 22px 20px 68px; }
 	.product-showcase { min-height: 480px; padding: 18px 18px 16px; }
-	.product-showcase-image-wrap { min-height: 390px; }
-	.product-showcase-image { height: 350px; max-width: 94%; width: 94%; }
+	.product-showcase-image-wrap { min-height: 0; }
+	.product-showcase-image { height: 350px; }
 	.product-showcase-footer { bottom: 16px; left: 18px; right: 18px; }
 	.product-showcase-controls { bottom: 48px; right: 18px; }
 	.product-info-rail { padding-top: 52px; }
