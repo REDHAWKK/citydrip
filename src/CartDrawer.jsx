@@ -1,7 +1,7 @@
 import { ArrowUpRight, Minus, Plus, ShoppingBag, X } from 'lucide-react'
 import { formatPrice } from './catalogue.js'
 
-function CartDrawer({ cart, cartCount, cartTotal, open, onClose, onUpdateQuantity, onWhatsappOrder }) {
+function CartDrawer({ cart, cartCount, cartTotal, open, onClose, onUpdateQuantity, onWhatsappOrder, onEmptyBag }) {
   if (!open) return null
 
   return (
@@ -73,6 +73,9 @@ function CartDrawer({ cart, cartCount, cartTotal, open, onClose, onUpdateQuantit
             <button className="whatsapp-button" onClick={onWhatsappOrder}>
               Continue on WhatsApp
               <ArrowUpRight size={18} />
+            </button>
+            <button className="empty-bag-button" onClick={onEmptyBag}>
+              Empty bag
             </button>
             <p className="cart-note">
               You’ll confirm size, delivery and payment with our team.

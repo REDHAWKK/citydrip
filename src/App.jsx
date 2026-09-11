@@ -104,6 +104,10 @@ function App() {
     )
   }
 
+  function emptyBag() {
+    setCart([])
+  }
+
   function whatsappOrder() {
     const order = cart
       .map((item) => `${item.quantity}x ${item.name} (${formatPrice(item.price)})`)
@@ -130,6 +134,7 @@ function App() {
           onClose={() => setCartOpen(false)}
           onUpdateQuantity={updateQuantity}
           onWhatsappOrder={whatsappOrder}
+          onEmptyBag={emptyBag}
         />
       </>
     )
@@ -151,6 +156,7 @@ function App() {
           onClose={() => setCartOpen(false)}
           onUpdateQuantity={updateQuantity}
           onWhatsappOrder={whatsappOrder}
+          onEmptyBag={emptyBag}
         />
       </>
     )
@@ -173,6 +179,7 @@ function App() {
           onClose={() => setCartOpen(false)}
           onUpdateQuantity={updateQuantity}
           onWhatsappOrder={whatsappOrder}
+          onEmptyBag={emptyBag}
         />
       </>
     )
@@ -204,12 +211,12 @@ function App() {
         </div>
         <div className="hero-product" aria-label="Orange City Drip tracksuit product visual">
           <img className="hero-image" src="/hero.png" alt="Orange City Drip tracksuit" />
-          <div className="hero-sticker">
+          {/* <div className="hero-sticker">
             New
             <br />
             drop
             <ArrowUpRight size={25} />
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -279,6 +286,7 @@ function App() {
         onClose={() => setCartOpen(false)}
         onUpdateQuantity={updateQuantity}
         onWhatsappOrder={whatsappOrder}
+        onEmptyBag={emptyBag}
       />
     </main>
   )
