@@ -28,7 +28,7 @@ a { text-decoration: none; }
 .hero { background: var(--orange); min-height: 650px; overflow: hidden; padding: 77px 9vw 27px; position: relative; display: flex; align-items: center; }
 .hero::after { content: ''; position: absolute; inset: 0; opacity: .13; pointer-events: none; background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 17px 17px; mix-blend-mode: soft-light; }
 .hero-noise { background: var(--orange-deep); border-radius: 48% 52% 43% 57%; height: 670px; opacity: .42; position: absolute; right: -9%; top: -17%; transform: rotate(-18deg); width: 62%; }
-.hero-copy { position: relative; z-index: 1; width: 48%; }
+.hero-copy { position: relative; z-index: 2; width: 48%; }
 .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .14em; margin: 0 0 20px; text-transform: uppercase; }
 .eyebrow.light { color: rgba(255,248,239,.8); }
 h1, h2, h3, p { margin-top: 0; }
@@ -39,16 +39,8 @@ em { font-style: normal; color: var(--milk); }
 .pill-button { align-items: center; border-radius: 100px; display: inline-flex; font-size: 12px; font-weight: 700; gap: 26px; padding: 14px 17px 14px 20px; }
 .dark-button { background: var(--ink); color: var(--milk); }
 .light-button { background: var(--milk); color: var(--ink); }
-.hero-product { height: 650px; position: absolute; right: 4%; top: 5px; width: 620px; z-index: 1; }
-.hero-image { height: 100%; object-fit: contain; position: absolute; width: 100%; }
-.hoodie-shape { background: var(--ink); border-radius: 40px 40px 21px 21px; bottom: 40px; height: 405px; left: 46px; position: absolute; transform: rotate(-7deg); width: 310px; }
-.hoodie-shape::before, .hoodie-shape::after { background: var(--ink); content: ''; height: 225px; position: absolute; top: 100px; width: 100px; z-index: -1; }
-.hoodie-shape::before { border-radius: 60px 8px 24px 60px; left: -67px; transform: rotate(11deg); }
-.hoodie-shape::after { border-radius: 8px 60px 60px 24px; right: -67px; transform: rotate(-11deg); }
-.hoodie-shape > :first-child { border: 17px solid var(--orange); border-bottom: 0; border-radius: 55% 55% 0 0; height: 62px; left: 95px; position: absolute; top: -24px; width: 120px; }
-.hoodie-pocket { border: 3px solid var(--orange); border-radius: 0 0 30px 30px; bottom: 48px; height: 58px; left: 87px; position: absolute; width: 135px; }
-.hoodie-print { color: var(--orange); font-family: 'Outfit'; font-size: 27px; font-weight: 800; left: 105px; line-height: .8; position: absolute; text-align: center; top: 147px; transform: rotate(-5deg); }
-.hoodie-print small { font-family: 'DM Sans'; font-size: 6px; letter-spacing: .14em; }
+.hero-product { height: 650px; pointer-events: none; position: absolute; right: 4%; top: 5px; width: 620px; z-index: 1; }
+.hero-image { height: 100%; object-fit: contain; pointer-events: none; position: absolute; width: 100%; }
 .hero-sticker { align-items: center; background: var(--milk); border-radius: 50%; display: flex; flex-direction: column; font-size: 16px; font-weight: 700; height: 110px; justify-content: center; line-height: .9; position: absolute; right: -30px; text-align: center; top: 68px; transform: rotate(13deg); width: 110px; z-index: 3; }
 .hero-foot { bottom: 25px; display: flex; font-size: 10px; font-weight: 700; justify-content: space-between; left: 9vw; letter-spacing: .08em; position: absolute; right: 9vw; text-transform: uppercase; z-index: 1; }
 .hero-foot span:last-child { align-items: center; display: flex; gap: 6px; }
@@ -196,6 +188,6 @@ footer { background: var(--ink); color: var(--milk); padding: 60px 9vw 25px; }.f
 
 @media (max-width: 700px) {
 	.hero { display: flex; flex-direction: column; min-height: 820px; }
-	.hero-product { align-self: center; bottom: auto; height: 410px; margin-top: 8px; position: relative; right: auto; top: auto; width: min(100%, 430px); }
+	.hero-product { align-self: center; bottom: auto; height: 410px; margin-top: -42px; position: relative; right: auto; top: auto; width: min(100%, 430px); }
 	.hero-sticker { right: 0; }
 }
