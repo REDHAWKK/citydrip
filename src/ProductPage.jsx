@@ -30,10 +30,7 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
         image: product.gallery.map((image) => `https://citydrip.com.ng${image}`),
         description: product.description,
         sku: product.code,
-        brand: {
-          '@type': 'Brand',
-          name: 'City Drip',
-        },
+        brand: { '@type': 'Brand', name: 'City Drip' },
         offers: {
           '@type': 'Offer',
           priceCurrency: 'NGN',
@@ -75,10 +72,7 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
         <div className="product-detail-layout">
           <section className="product-gallery" aria-label={`${product.name} image gallery`}>
             <div className="product-gallery-main">
-              <img
-                src={product.gallery[activeImage]}
-                alt={`${product.name}, view ${activeImage + 1}`}
-              />
+              <img src={product.gallery[activeImage]} alt={`${product.name}, view ${activeImage + 1}`} />
               <span className="gallery-count">
                 {String(activeImage + 1).padStart(2, '0')} / {String(product.gallery.length).padStart(2, '0')}
               </span>
