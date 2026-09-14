@@ -17,8 +17,13 @@ import { updateSeo } from './seo.js'
 import ShopPage from './ShopPage.jsx'
 import kachingSound from './assets/audio/kaching-sound.mp3'
 
+const liveImages = [1, 2, 3, 4, 5].map(
+  (imageNumber) => `/Live/photoshoot${imageNumber}.png`,
+)
+
 function App() {
   const [activeCategory, setActiveCategory] = useState('All pieces')
+  const [activeLiveImage, setActiveLiveImage] = useState(0)
   const [cart, setCart] = useState(() => {
     try {
       const savedCart = localStorage.getItem('citydrip-cart')
@@ -41,6 +46,14 @@ function App() {
       localStorage.removeItem('citydrip-cart')
     }
   }, [cart])
+
+  useEffect(() => {
+    const slideshow = window.setInterval(() => {
+      setActiveLiveImage((currentImage) => (currentImage + 1) % liveImages.length)
+    }, 3000)
+
+    return () => window.clearInterval(slideshow)
+  }, [])
 
   useEffect(() => {
     if (currentPath === '/') {
@@ -251,8 +264,6 @@ function App() {
           <p className="eyebrow">This is City Drip</p>
           <h2>
             Step Into Your Drip
-            <br />
-            <em>background.</em>
           </h2>
           <p>
             We make clothes for the ones who bring the flavour. Loud colour,
@@ -263,11 +274,17 @@ function App() {
             <ArrowUpRight size={18} />
           </a>
         </div>
-        <div
-          className="world-mark"
-          role="img"
-          aria-label="City Drip campaign in Lagos"
-        />
+        <div className="world-mark" aria-label="City Drip campaign in Lagos">
+          {liveImages.map((image, index) => (
+            <img
+              className={`world-slide${index === activeLiveImage ? ' is-active' : ''}`}
+              key={image}
+              src={image}
+              alt=""
+              aria-hidden="true"
+            />
+          ))}
+        </div>
       </section>
 
       <Footer />
