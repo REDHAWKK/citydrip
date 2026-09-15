@@ -42,7 +42,10 @@ function CartDrawer({ cart, cartCount, cartTotal, open, onClose, onUpdateQuantit
           <>
             <div className="cart-items">
               {cart.map((item) => (
-                <div className="cart-item" key={item.id}>
+                <div
+                  className="cart-item"
+                  key={`${item.id}-${item.selectedSize || 'one-size'}`}
+                >
                   <div className={`mini-art ${item.tone}`}>
                     <img
                       className="mini-product-image"
@@ -52,13 +55,22 @@ function CartDrawer({ cart, cartCount, cartTotal, open, onClose, onUpdateQuantit
                   </div>
                   <div className="cart-item-copy">
                     <h3>{item.name}</h3>
+                    <p>{item.selectedSize || 'One size'}</p>
                     <p>{formatPrice(item.price)}</p>
                     <div className="quantity">
-                      <button onClick={() => onUpdateQuantity(item.id, -1)}>
+                      <button
+                        onClick={() =>
+                          onUpdateQuantity(item.id, item.selectedSize, -1)
+                        }
+                      >
                         <Minus size={13} />
                       </button>
                       <span>{item.quantity}</span>
-                      <button onClick={() => onUpdateQuantity(item.id, 1)}>
+                      <button
+                        onClick={() =>
+                          onUpdateQuantity(item.id, item.selectedSize, 1)
+                        }
+                      >
                         <Plus size={13} />
                       </button>
                     </div>
@@ -74,6 +86,10 @@ function CartDrawer({ cart, cartCount, cartTotal, open, onClose, onUpdateQuantit
               Continue on WhatsApp
               <ArrowUpRight size={18} />
             </button>
+            <a className="continue-shopping" href="/shop" onClick={onClose}>
+              Continue shopping
+              <ArrowUpRight size={16} />
+            </a>
             <button className="empty-bag-button" onClick={onEmptyBag}>
               Empty bag
             </button>

@@ -105,11 +105,11 @@ function App() {
     setCartOpen(true)
   }
 
-  function updateQuantity(id, change) {
+  function updateQuantity(id, selectedSize, change) {
     setCart((currentCart) =>
       currentCart
         .map((item) =>
-          item.id === id
+          item.id === id && item.selectedSize === selectedSize
             ? { ...item, quantity: item.quantity + change }
             : item,
         )
@@ -123,7 +123,7 @@ function App() {
 
   function whatsappOrder() {
     const order = cart
-      .map((item) => `${item.quantity}x ${item.name} (${formatPrice(item.price)})`)
+      .map((item) => `${item.quantity}x ${item.name} - ${item.selectedSize || 'One size'} (${formatPrice(item.price)})`)
       .join('%0A')
 
     window.open(
