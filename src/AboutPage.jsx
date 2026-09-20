@@ -9,7 +9,7 @@ function AboutPage({ cartCount, onBagOpen }) {
     updateSeo({
       title: 'About City Drip | Discover the story behind the drip',
       description:
-        'Enter The City Drip World: the story, spirit and Lagos energy behind City Drip Nigerian streetwear.',
+        'Enter The City Drip World: the story, spirit and Lagos energy behind City Drip Original.',
       path: '/about',
       schema: {
         '@context': 'https://schema.org',
