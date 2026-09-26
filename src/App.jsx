@@ -18,7 +18,7 @@ import ShopPage from './ShopPage.jsx'
 import kachingSound from './assets/audio/kaching-sound.mp3'
 
 const liveImages = [1, 2, 3, 4, 5].map(
-  (imageNumber) => `/Live/photoshoot${imageNumber}.png`,
+  (imageNumber) => `/Live/photoshoot${imageNumber}.jpg`,
 )
 
 function App() {
@@ -223,7 +223,7 @@ function App() {
           </a>
         </div>
         <div className="hero-product" aria-label="Orange City Drip tracksuit product visual">
-          <img className="hero-image" src="/hero.png" alt="Orange City Drip tracksuit" />
+          <img className="hero-image" src="/hero.png" alt="Orange City Drip tracksuit" loading="lazy" />
         </div>
       </section>
 
@@ -281,6 +281,7 @@ function App() {
               key={image}
               src={image}
               alt=""
+              loading="lazy"
               aria-hidden="true"
             />
           ))}

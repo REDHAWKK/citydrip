@@ -83,6 +83,108 @@ a {
     width: 96px;
     object-fit: contain;
 }
+.footer-poster {
+    border-bottom: 1px solid rgba(255,248,239,.25);
+    padding-bottom: 58px;
+}
+.footer-kicker {
+    color: var(--orange);
+    display: flex;
+    font-size: 10px;
+    font-weight: 700;
+    justify-content: space-between;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+.footer-heading-row {
+    align-items: end;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+}
+.footer-heading-row h2 {
+    font-size: clamp(76px, 12vw, 176px);
+    line-height: .78;
+    margin: 0;
+}
+.footer-heading-row h2 em {
+    color: var(--orange);
+}
+.footer-order-button {
+    align-items: center;
+    border: 1px solid var(--orange);
+    border-radius: 100px;
+    color: var(--orange);
+    display: inline-flex;
+    font-size: 12px;
+    font-weight: 700;
+    gap: 26px;
+    margin-bottom: 8px;
+    padding: 15px 17px 15px 20px;
+    transition: background .2s ease, color .2s ease;
+}
+.footer-order-button:hover {
+    background: var(--orange);
+    color: var(--ink);
+}
+.footer-links-row {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 28px 0 22px;
+}
+.footer-links-row > img {
+    height: 55px;
+    object-fit: contain;
+    object-position: left center;
+    width: 90px;
+}
+.footer-nav {
+    display: flex;
+    gap: 28px;
+}
+.footer-nav a {
+    align-items: center;
+    display: inline-flex;
+    font-size: 11px;
+    font-weight: 700;
+    gap: 6px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: color .2s ease, transform .2s ease;
+}
+.footer-nav a:hover {
+    color: var(--orange);
+    transform: translateY(-2px);
+}
+.footer-socials {
+    display: flex;
+    gap: 12px;
+    justify-content: end;
+}
+.footer-socials a {
+    align-items: center;
+    display: inline-flex;
+    transition: color .2s ease, transform .2s ease;
+}
+.footer-socials a:hover {
+    color: var(--orange);
+    transform: translateY(-2px);
+}
+.footer-bottom {
+    align-items: center;
+    border-top: 1px solid rgba(255,248,239,.25);
+    display: flex;
+    font-size: 10px;
+    gap: 20px;
+    justify-content: space-between;
+    letter-spacing: .08em;
+    padding-top: 17px;
+    text-transform: uppercase;
+}
+.footer-credit {
+    color: var(--orange);
+}
 .nav-logo {
     justify-self: center;
 }

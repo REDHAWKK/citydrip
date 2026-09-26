@@ -51,6 +51,7 @@ function CartDrawer({ cart, cartCount, cartTotal, open, onClose, onUpdateQuantit
                       className="mini-product-image"
                       src={item.image}
                       alt=""
+                      loading="lazy"
                     />
                   </div>
                   <div className="cart-item-copy">

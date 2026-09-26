@@ -27,6 +27,7 @@ function ProductGrid({ activeCategory = 'All pieces', onCategoryChange, onAddToC
                 className="product-image"
                 src={product.image}
                 alt={`${product.name} product design`}
+                loading="lazy"
               />
               <div className="product-actions">
                 <button

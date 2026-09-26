@@ -97,6 +97,7 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
                   key={image}
                   src={image}
                   alt={`${product.name}, view ${index + 1}`}
+                  loading="lazy"
                 />
               ))}
             </div>
@@ -162,7 +163,7 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
         <div className="product-thumbnail-strip" aria-label="Product image selection">
           {gallery.map((image, index) => (
             <button className={activeImage === index ? 'is-active' : ''} key={image} type="button" aria-label={`Show product image ${index + 1}`} onClick={() => setActiveImage(index)}>
-              <img src={image} alt="" />
+              <img src={image} alt="" loading="lazy" />
             </button>
           ))}
         </div>

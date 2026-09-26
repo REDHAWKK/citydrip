@@ -28,7 +28,7 @@ function NavBar({ cartCount, onBagOpen }) {
           Contact
         </a>
       </div>
-      <a className="nav-logo" href="/" aria-label="City Drip home"><img src="/nav-logo.png" alt="City Drip" /></a>
+      <a className="nav-logo" href="/" aria-label="City Drip home"><img src="/nav-logo.png" alt="City Drip" loading="lazy" /></a>
       <div className="nav-actions">
         <a className="nav-order" href="/shop">
           Order online
