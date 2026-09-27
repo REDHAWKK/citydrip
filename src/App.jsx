@@ -24,6 +24,7 @@ const liveImages = [1, 2, 3, 4, 5].map(
 function App() {
   const [activeCategory, setActiveCategory] = useState('All pieces')
   const [activeLiveImage, setActiveLiveImage] = useState(0)
+  const [heroImageLoaded, setHeroImageLoaded] = useState(false)
   const [cart, setCart] = useState(() => {
     try {
       const savedCart = localStorage.getItem('citydrip-cart')
@@ -200,6 +201,11 @@ function App() {
 
   return (
     <main className="site-shell">
+      {!heroImageLoaded && (
+        <div className="brand-loader" role="status" aria-label="Loading City Drip">
+          <img src="/nav-logo.png" alt="" />
+        </div>
+      )}
       <div className="top-strip">
         Free Lagos delivery on orders over ₦100,000
         <span>•</span>
@@ -223,7 +229,14 @@ function App() {
           </a>
         </div>
         <div className="hero-product" aria-label="Orange City Drip tracksuit product visual">
-          <img className="hero-image" src="/hero.png" alt="Orange City Drip tracksuit" loading="lazy" />
+          <img
+            className="hero-image"
+            src="/hero.png"
+            alt="Orange City Drip tracksuit"
+            fetchPriority="high"
+            onLoad={() => setHeroImageLoaded(true)}
+            onError={() => setHeroImageLoaded(true)}
+          />
         </div>
       </section>
 

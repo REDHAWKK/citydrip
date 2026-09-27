@@ -241,6 +241,47 @@ a {
     display: flex;
     align-items: center;
 }
+.brand-loader {
+    align-items: center;
+    animation: loader-fade-out .35s ease 1.05s forwards;
+    background: var(--orange);
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    position: fixed;
+    z-index: 20;
+}
+.brand-loader img {
+    animation: logo-reveal 1.05s cubic-bezier(.2,.75,.25,1) both;
+    height: auto;
+    max-width: min(76vw, 360px);
+    width: 360px;
+}
+@keyframes logo-reveal {
+    0% {
+        clip-path: inset(0 0 100% 0);
+        opacity: 0;
+        transform: translateY(14px) scale(.94);
+    }
+    45% {
+        opacity: 1;
+    }
+    78% {
+        clip-path: inset(0);
+        transform: translateY(-3px) scale(1.015);
+    }
+    100% {
+        clip-path: inset(0);
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+@keyframes loader-fade-out {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 .hero::after {
     content: '';
     position: absolute;
@@ -1242,6 +1283,9 @@ footer {
     text-align: center;
 }
 @media (max-width: 700px) {
+    .brand-loader img {
+        max-width: min(76vw, 300px);
+    }
     .top-strip {
         font-size: 9px;
     }
@@ -1521,6 +1565,18 @@ footer {
     }
     .hero-sticker {
         right: 0;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .brand-loader {
+        animation-duration: .01ms;
+        animation-delay: 0s;
+    }
+    .brand-loader img {
+        animation: none;
+        clip-path: none;
+        opacity: 1;
+        transform: none;
     }
 }
 /* Rebuilt product detail surface */
