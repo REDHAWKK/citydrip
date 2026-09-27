@@ -243,13 +243,15 @@ a {
 }
 .brand-loader {
     align-items: center;
-    animation: loader-fade-out .35s ease 1.05s forwards;
     background: var(--orange);
     display: flex;
     inset: 0;
     justify-content: center;
     position: fixed;
     z-index: 20;
+}
+.brand-loader.is-exiting {
+    animation: loader-fade-out .35s ease forwards;
 }
 .brand-loader img {
     animation: logo-reveal 1.05s cubic-bezier(.2,.75,.25,1) both;

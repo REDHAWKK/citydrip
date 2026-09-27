@@ -25,6 +25,8 @@ function App() {
   const [activeCategory, setActiveCategory] = useState('All pieces')
   const [activeLiveImage, setActiveLiveImage] = useState(0)
   const [heroImageLoaded, setHeroImageLoaded] = useState(false)
+  const [loaderMinimumElapsed, setLoaderMinimumElapsed] = useState(false)
+  const [showLoader, setShowLoader] = useState(true)
   const [cart, setCart] = useState(() => {
     try {
       const savedCart = localStorage.getItem('citydrip-cart')
@@ -39,6 +41,18 @@ function App() {
     ? currentPath.split('/')[2]
     : null
   const selectedProduct = products.find((product) => product.slug === productSlug)
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setLoaderMinimumElapsed(true), 4500)
+    return () => window.clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    if (!heroImageLoaded || !loaderMinimumElapsed) return
+
+    const timer = window.setTimeout(() => setShowLoader(false), 350)
+    return () => window.clearTimeout(timer)
+  }, [heroImageLoaded, loaderMinimumElapsed])
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -201,8 +215,12 @@ function App() {
 
   return (
     <main className="site-shell">
-      {!heroImageLoaded && (
-        <div className="brand-loader" role="status" aria-label="Loading City Drip">
+      {showLoader && (
+        <div
+          className={`brand-loader${heroImageLoaded && loaderMinimumElapsed ? ' is-exiting' : ''}`}
+          role="status"
+          aria-label="Loading City Drip"
+        >
           <img src="/nav-logo.png" alt="" />
         </div>
       )}
