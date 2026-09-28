@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   ArrowUpRight,
   ChevronDown,
@@ -15,7 +15,6 @@ import ProductGrid from './ProductGrid.jsx'
 import ProductPage from './ProductPage.jsx'
 import { updateSeo } from './seo.js'
 import ShopPage from './ShopPage.jsx'
-import dripSound from './assets/audio/drip.mp3'
 import kachingSound from './assets/audio/kaching-sound.mp3'
 
 const liveImages = [1, 2, 3, 4, 5].map(
@@ -28,7 +27,6 @@ function App() {
   const [heroImageLoaded, setHeroImageLoaded] = useState(false)
   const [loaderMinimumElapsed, setLoaderMinimumElapsed] = useState(false)
   const [showLoader, setShowLoader] = useState(true)
-  const loaderSoundPlayed = useRef(false)
   const [cart, setCart] = useState(() => {
     try {
       const savedCart = localStorage.getItem('citydrip-cart')
@@ -43,15 +41,6 @@ function App() {
     ? currentPath.split('/')[2]
     : null
   const selectedProduct = products.find((product) => product.slug === productSlug)
-
-  function playLoaderSound() {
-    if (loaderSoundPlayed.current) return
-
-    loaderSoundPlayed.current = true
-    const audio = new Audio(dripSound)
-    audio.volume = 0.6
-    audio.play().catch(() => {})
-  }
 
   useEffect(() => {
     const timer = window.setTimeout(() => setLoaderMinimumElapsed(true), 4500)
@@ -232,7 +221,7 @@ function App() {
           role="status"
           aria-label="Loading City Drip"
         >
-          <img src="/nav-logo.png" alt="" onAnimationStart={playLoaderSound} />
+          <img src="/nav-logo.png" alt="" />
         </div>
       )}
       <div className="top-strip">

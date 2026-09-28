@@ -1614,6 +1614,9 @@ footer {
     max-width: 1500px;
     padding: 26px 7vw 92px;
 }
+.product-gallery-column {
+    min-width: 0;
+}
 .product-showcase {
     min-height: min(720px, 73vh);
     overflow: hidden;
@@ -1857,7 +1860,7 @@ footer {
 .product-thumbnail-strip {
     display: flex;
     gap: 8px;
-    margin: -62px 7vw 80px;
+    margin: 12px 0 0;
     max-width: 650px;
     position: relative;
     z-index: 1;
@@ -1932,7 +1935,7 @@ footer {
         margin-top: 30px;
     }
     .product-thumbnail-strip {
-        margin: -48px 20px 58px;
+        margin: 12px 0 0;
         overflow-x: auto;
     }
 }

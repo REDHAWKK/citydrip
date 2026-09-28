@@ -81,6 +81,7 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
       </div>
 
       <section className="product-stage">
+        <div className="product-gallery-column">
         <div className={`product-showcase product-showcase-${product.tone}`}>
           <div className="product-showcase-topline">
             <span>{product.code}</span>
@@ -112,6 +113,16 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
               <button type="button" aria-label="Next product image" onClick={() => changeImage(1)}><ArrowRight size={17} /></button>
             </div>
           )}
+        </div>
+        {gallery.length > 1 && (
+          <div className="product-thumbnail-strip" aria-label="Product image selection">
+            {gallery.map((image, index) => (
+              <button className={activeImage === index ? 'is-active' : ''} key={image} type="button" aria-label={`Show product image ${index + 1}`} onClick={() => setActiveImage(index)}>
+                <img src={image} alt="" loading="lazy" />
+              </button>
+            ))}
+          </div>
+        )}
         </div>
 
         <div className="product-info-rail">
@@ -159,15 +170,6 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
         </div>
       </section>
 
-      {gallery.length > 1 && (
-        <div className="product-thumbnail-strip" aria-label="Product image selection">
-          {gallery.map((image, index) => (
-            <button className={activeImage === index ? 'is-active' : ''} key={image} type="button" aria-label={`Show product image ${index + 1}`} onClick={() => setActiveImage(index)}>
-              <img src={image} alt="" loading="lazy" />
-            </button>
-          ))}
-        </div>
-      )}
       <Footer />
     </main>
   )
