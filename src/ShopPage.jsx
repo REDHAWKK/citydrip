@@ -46,6 +46,9 @@ function ShopPage({ cartCount, onBagOpen, onAddToCart }) {
           <em>energy.</em>
         </h1>
         <p>Six pieces. One unmistakable City Drip mood.</p>
+        <div className="shop-hero-product" aria-hidden="true">
+          <img src="/shopping-bag.png" alt="" />
+        </div>
       </header>
       <section className="shop-section catalog-page-section">
         <div className="section-heading">
