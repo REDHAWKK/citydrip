@@ -58,7 +58,7 @@ function Footer() {
           <span>Lagos, Nigeria</span>
           <a
             className="footer-credit"
-            href="https://www.oriarebun-princeton-portfolio.vercel.app"
+            href="https://oriarebun-princeton-portfolio.vercel.app/"
             target="_blank"
             rel="noreferrer"
           >
