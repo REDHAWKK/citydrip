@@ -288,11 +288,11 @@ a {
     content: '';
     position: absolute;
     inset: 0;
-    opacity: .13;
+    opacity: .55;
     pointer-events: none;
-    background-image: radial-gradient(#fff 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255,248,239,.42) 1px, transparent 1px);
     background-size: 17px 17px;
-    mix-blend-mode: soft-light;
+    z-index: 0;
 }
 .hero-noise {
     background: var(--orange-deep);
