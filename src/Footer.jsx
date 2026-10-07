@@ -56,7 +56,14 @@ function Footer() {
         <div className="footer-bottom">
           <span>© 2026 City Drip Original</span>
           <span>Lagos, Nigeria</span>
-          <span className="footer-credit">Website Produced by Oriarebun Princeton</span>
+          <a
+            className="footer-credit"
+            href="https://www.oriarebun-princeton-portfolio.vercel.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Website Produced by Oriarebun Princeton
+          </a>
         </div>
       </div>
     </footer>
