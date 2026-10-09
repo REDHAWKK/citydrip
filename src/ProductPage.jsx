@@ -82,7 +82,7 @@ function ProductPage({ product, cartCount, onBagOpen, onAddToCart }) {
 
       <section className="product-stage">
         <div className="product-gallery-column">
-        <div className={`product-showcase product-showcase-${product.tone}`}>
+        <div className={`product-showcase product-showcase-${product.tone} product-showcase-${product.slug}`}>
           <div className="product-showcase-topline">
             <span>{product.code}</span>
             <span>{product.badge || 'City Drip Original'}</span>

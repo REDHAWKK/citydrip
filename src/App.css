@@ -288,7 +288,7 @@ a {
     content: '';
     position: absolute;
     inset: 0;
-    opacity: .55;
+    opacity: .44;
     pointer-events: none;
     background-image: radial-gradient(rgba(255,248,239,.42) 1px, transparent 1px);
     background-size: 17px 17px;
@@ -444,6 +444,11 @@ em {
 .shop-page-hero {
     min-height: 410px;
     overflow: hidden;
+}
+.shop-page-hero::after {
+    background-image: radial-gradient(rgba(255,248,239,.42) 1px, transparent 1px);
+    background-size: 17px 17px;
+    opacity: .44;
 }
 .shop-page-hero > .eyebrow,
 .shop-page-hero > h1,
@@ -2064,4 +2069,108 @@ footer {
 }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Editorial treatment for the tracksuit gallery: let the studio photo sit in its own palette. */
+.product-showcase-orange {
+    background-color: #c9cbca;
+    background-image: radial-gradient(rgba(23,23,23,.2) .7px, transparent .7px);
+    background-size: 15px 15px;
+    color: var(--ink);
+}
+.product-showcase-orange::before {
+    color: var(--ink);
+    content: 'LAGOS / ORIGINAL';
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    opacity: .72;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    z-index: 0;
+}
+.product-showcase-orange::after {
+    background: var(--orange);
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    z-index: 0;
+}
+.product-showcase-orange .product-showcase-image-wrap {
+    z-index: 1;
+}
+
+/* Product-specific gallery palettes echo the art direction in each existing photo set. */
+.product-showcase-track-set {
+    background-color: #ead8bd;
+    background-image: linear-gradient(135deg, rgba(255,255,255,.32), transparent 56%);
+    color: var(--ink);
+}
+.product-showcase-track-set::before,
+.product-showcase-snapback-cap::before,
+.product-showcase-tank-top::before,
+.product-showcase-crest-cap::before {
+    content: 'CITY DRIP / LAGOS';
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    z-index: 0;
+}
+.product-showcase-track-set::after,
+.product-showcase-t-shirt::after,
+.product-showcase-snapback-cap::after,
+.product-showcase-tank-top::after,
+.product-showcase-crest-cap::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 7px;
+    z-index: 0;
+}
+.product-showcase-track-set::after,
+.product-showcase-t-shirt::after,
+.product-showcase-crest-cap::after { background: var(--orange); }
+.product-showcase-t-shirt {
+    background-color: #e7d2b3;
+    background-image: linear-gradient(145deg, rgba(255,255,255,.4), transparent 65%);
+    color: var(--ink);
+}
+.product-showcase-snapback-cap {
+    background-color: #aaa9a4;
+    background-image: radial-gradient(rgba(23,23,23,.16) .7px, transparent .7px);
+    background-size: 13px 13px;
+    color: var(--ink);
+}
+.product-showcase-snapback-cap::after { background: #276cc1; }
+.product-showcase-tank-top {
+    background-color: #777872;
+    background-image: linear-gradient(135deg, rgba(255,255,255,.12), transparent 60%);
+    color: var(--milk);
+}
+.product-showcase-tank-top::after { background: var(--milk); }
+.product-showcase-crest-cap {
+    background-color: #c5c0b6;
+    background-image: radial-gradient(rgba(23,23,23,.16) .7px, transparent .7px);
+    background-size: 14px 14px;
+    color: var(--ink);
+}
+.product-showcase-track-set .product-showcase-image-wrap,
+.product-showcase-t-shirt .product-showcase-image-wrap,
+.product-showcase-snapback-cap .product-showcase-image-wrap,
+.product-showcase-tank-top .product-showcase-image-wrap,
+.product-showcase-crest-cap .product-showcase-image-wrap {
+    z-index: 1;
 }
